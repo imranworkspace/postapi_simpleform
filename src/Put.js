@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-const Post = () => {
+const Put = () => {
     const data = {first_name:'',last_name:''}
     const [inputData,setinputData] = useState(data)
 
@@ -10,7 +10,7 @@ const Post = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        axios.post('https://reqres.in/api/users',{
+        axios.put('https://reqres.in/api/users/2',{
             inputData
         })
         .then(res=>console.log(res))
@@ -19,7 +19,7 @@ const Post = () => {
 
   return (
     <>
-        <h3>Insert Form</h3>
+        <h3>Update Form</h3>
         <label>firstname</label>
         <input type='text' name='first_name' value={inputData.first_name} onChange={handleChange} /> <br></br>
         <label>lastname</label>
@@ -29,4 +29,4 @@ const Post = () => {
   )
 }
 
-export default Post
+export default Put
